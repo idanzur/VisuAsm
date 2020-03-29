@@ -77,7 +77,7 @@ Blockly.JavaScript['ref'] = function(block) {
 Blockly.Blocks['arithmetic'] = {
 	init: function() {
 		this.appendValueInput("src")
-			.appendField(new Blockly.FieldDropdown([["add", "add"], ["sub", "sub"], ["shr", "shr"], ["shl", "shl"]]), "operator");
+			.appendField(new Blockly.FieldDropdown([["add", "add"], ["sub", "sub"], ["shr", "shr"], ["shl", "shl"], ["xor", "xor"], ["or", "or"], ["and", "and"]]), "operator");
 		this.appendValueInput("dest")
 			.appendField(",");
 		this.setInputsInline(true);

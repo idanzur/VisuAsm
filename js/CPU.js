@@ -95,6 +95,45 @@ CPU.prototype = {
 			canvasController.updateReg(reg2,this.registers.get(reg2).value);
 		}
 	},
+	xor: function(reg1, reg2){
+		tmp = reg1;
+		reg1 = reg2;
+		reg2 = tmp;
+		if(this.registers.get(reg2) instanceof Register){
+			if(this.registers.get(reg1) instanceof Register){
+				this.registers.get(reg2).value ^= this.registers.get(reg1).value;
+			}else{
+				this.registers.get(reg2).value ^= parseInt(reg1);
+			}
+			canvasController.updateReg(reg2,this.registers.get(reg2).value);
+		}
+	},
+	and: function(reg1, reg2){
+		tmp = reg1;
+		reg1 = reg2;
+		reg2 = tmp;
+		if(this.registers.get(reg2) instanceof Register){
+			if(this.registers.get(reg1) instanceof Register){
+				this.registers.get(reg2).value &= this.registers.get(reg1).value;
+			}else{
+				this.registers.get(reg2).value &= parseInt(reg1);
+			}
+			canvasController.updateReg(reg2,this.registers.get(reg2).value);
+		}
+	},
+	or: function(reg1, reg2){
+		tmp = reg1;
+		reg1 = reg2;
+		reg2 = tmp;
+		if(this.registers.get(reg2) instanceof Register){
+			if(this.registers.get(reg1) instanceof Register){
+				this.registers.get(reg2).value |= this.registers.get(reg1).value;
+			}else{
+				this.registers.get(reg2).value |= parseInt(reg1);
+			}
+			canvasController.updateReg(reg2,this.registers.get(reg2).value);
+		}
+	},
 	mul: function(reg1){
 		var arg;
 		if(this.registers.get(reg1) instanceof Register){
