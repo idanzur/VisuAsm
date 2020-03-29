@@ -17,11 +17,15 @@ CanvasController.prototype = {
 			"ecx": new CanvasCell(this.cv, 50+140, 100, "ecx", "0", "#06C"),
 			"edx": new CanvasCell(this.cv, 50+210, 100, "edx", "0", "#06C"),
 			"esp": new CanvasCell(this.cv, 50, 100+50, "esp", "0", "#093"),
-			"ebp": new CanvasCell(this.cv, 50+70, 100+50, "ebp", "0", "#093")
+			"ebp": new CanvasCell(this.cv, 50+70, 100+50, "ebp", "0", "#093"),
 		};
+		this.cpuFlags = {
+			"cmp": new CanvasCell(this.cv, 50, 200+50, "cmp", "0", "#903")
+		}
 		this.stack = [];
 		this.drawText("R-Bank:",50,30);
 		this.drawText("Stack:",400,30);
+		this.drawText("Flags:",50,200);
 		this.updateInstText("");
 	},
 
@@ -38,6 +42,10 @@ CanvasController.prototype = {
 
 	updateReg: function(reg,text){
 		this.cpuRegs[reg].updateText(text);
+	},
+	
+	updateFlag: function(flag, value){
+		this.cpuFlags[flag] = value;
 	},
 
 	updateAllRegs: function(){

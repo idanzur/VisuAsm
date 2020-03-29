@@ -37,6 +37,7 @@ CPU.prototype = {
 		}else{
 			this.cmp_flag = -1;
 		}
+		canvasController.updateFlag("cmp", this.cmp_flag);
 	},
 	push: function(reg){
 		if(this.registers.get(reg) instanceof Register){
