@@ -120,12 +120,18 @@ CPU.prototype = {
 		canvasController.updateReg("edx",this.registers.get("edx").value);
 	},
 	shr: function(val, reg1){
+		tmp = reg1;
+		reg1 = val;
+		val = tmp;
 		if(this.registers.get(reg1) instanceof Register){
 			this.registers.get(reg1).value = this.registers.get(reg1).value >> val;
 			canvasController.updateReg(reg1,this.registers.get(reg1).value);
 		}
 	},
 	shl: function(val, reg1){
+		tmp = reg1;
+		reg1 = val;
+		val = tmp;
 		if(this.registers.get(reg1) instanceof Register){
 			this.registers.get(reg1).value = this.registers.get(reg1).value << val;
 			canvasController.updateReg(reg1,this.registers.get(reg1).value);
