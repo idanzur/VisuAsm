@@ -56,6 +56,9 @@ CPU.prototype = {
 		canvasController.stackPop();
 	},
 	mov: function(reg1, reg2){
+		tmp = reg1;
+		reg1 = reg2;
+		reg2 = tmp;
 		if(this.registers.get(reg2) instanceof Register){
 			if(this.registers.get(reg1) instanceof Register){
 				this.registers.get(reg2).value = this.registers.get(reg1).value;
@@ -66,6 +69,9 @@ CPU.prototype = {
 		}
 	},
 	add: function(reg1, reg2){
+		tmp = reg1;
+		reg1 = reg2;
+		reg2 = tmp;
 		if(this.registers.get(reg2) instanceof Register){
 			if(this.registers.get(reg1) instanceof Register){
 				this.registers.get(reg2).value += this.registers.get(reg1).value;
@@ -76,6 +82,9 @@ CPU.prototype = {
 		}
 	},
 	sub: function(reg1, reg2){
+		tmp = reg1;
+		reg1 = reg2;
+		reg2 = tmp;
 		if(this.registers.get(reg2) instanceof Register){
 			if(this.registers.get(reg1) instanceof Register){
 				this.registers.get(reg2).value -= this.registers.get(reg1).value;
